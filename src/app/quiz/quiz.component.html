@@ -1,0 +1,13 @@
+<!-- quiz.component.html -->
+<div *ngIf="question">
+  <h3>{{ question.text }}</h3>
+  <ul>
+    <li *ngFor="let option of question.options">
+      <label>
+        <input type="radio" [value]="option" (change)="onSelectOption(option)">
+        {{ option }}
+      </label>
+    </li>
+  </ul>
+  <button (click)="submitAnswer()">Submit</button>
+</div>

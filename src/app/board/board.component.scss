@@ -1,0 +1,72 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 5px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.cell {
+  background-color: lightgray;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+.player {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transition: top 0.5s, left 0.5s;
+}
+
+.jumbotron {
+  position: fixed; /* Posizione fissa per coprire l'intero viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Sfondo trasparente per il jumbotron */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jumbotron-content {
+  text-align: center;
+  color: white;
+  width: 80%; /* Larghezza del contenuto del jumbotron */
+}
+
+.jumbotron p {
+  font-size: 1.5rem; /* Dimensione del testo della domanda */
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.options button {
+  width: 48%; /* Larghezza dei pulsanti delle risposte */
+  margin: 0.5rem 0;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem; /* Dimensione del testo dei pulsanti */
+}
+
+.correct-answer {
+  background-color: green !important; /* Colore verde per la risposta corretta */
+  color: white;
+}
+
+.wrong-answer {
+  background-color: red !important; /* Colore rosso per la risposta sbagliata */
+  color: white;
+}

@@ -1,0 +1,38 @@
+<div class="board">
+  <div *ngFor="let cell of cells; let i = index" class="cell">
+    {{ i + 1 }} - {{ cell.topic }}
+  </div>
+  <img *ngIf="player.position !== -1" class="player" [src]="getPlayerImage()" [style.top]="getPlayerTop()" [style.left]="getPlayerLeft()">
+  <app-dice (diceRolled)="onDiceRolled($event)"></app-dice>
+</div>
+
+<div class="jumbotron" *ngIf="quizStarted && currentQuestion">
+  <div class="jumbotron-content">
+    <h1>Quiz</h1>
+    <p>{{ currentQuestion.text }}</p>
+    <div class="options">
+      <button (click)="onAnswer('A')" 
+              [ngClass]="{'correct-answer': isCorrectAnswer('A'), 'wrong-answer': isWrongAnswer('A')}"
+              [disabled]="selectedAnswer !== null">
+        {{ currentQuestion.optionA }}
+      </button>
+      <button (click)="onAnswer('B')" 
+              [ngClass]="{'correct-answer': isCorrectAnswer('B'), 'wrong-answer': isWrongAnswer('B')}"
+              [disabled]="selectedAnswer !== null">
+        {{ currentQuestion.optionB }}
+      </button>
+    </div>
+    <div class="options">
+      <button (click)="onAnswer('C')" 
+              [ngClass]="{'correct-answer': isCorrectAnswer('C'), 'wrong-answer': isWrongAnswer('C')}"
+              [disabled]="selectedAnswer !== null">
+        {{ currentQuestion.optionC }}
+      </button>
+      <button (click)="onAnswer('D')" 
+              [ngClass]="{'correct-answer': isCorrectAnswer('D'), 'wrong-answer': isWrongAnswer('D')}"
+              [disabled]="selectedAnswer !== null">
+        {{ currentQuestion.optionD }}
+      </button>
+    </div>
+  </div>
+</div>

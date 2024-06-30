@@ -1,18 +1,46 @@
+// app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './guards/login/login.component';
+import { RegisterComponent } from './guards/register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardComponent } from './board/board.component';
+import { DiceComponent } from './dice/dice.component';
+import { QuestionComponent } from './question/question.component';
+import { PlayerComponent } from './player/player.component';
+import { AuthService } from './guards/auth.service';
+import { GameService } from './services/game.service';
+import { QuestionService } from './services/question.service';
+import { AuthGuard } from './guards/auth.guard';
+import { QuizComponent } from './quiz/quiz.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    BoardComponent,
+    DiceComponent,
+    QuestionComponent,
+    PlayerComponent,
+    QuizComponent,
+   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule // Aggiungi HttpClientModule agli imports
   ],
-  providers: [],
+  providers: [AuthService, GameService, QuestionService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,6 @@
+<!-- question.component.html -->
+<div *ngIf="question">
+    <p>{{ question.text }}</p>
+    <button *ngFor="let option of question.options" (click)="checkAnswer(option)">{{ option }}</button>
+  </div>
+  <p>question works!</p>
