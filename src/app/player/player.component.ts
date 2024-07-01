@@ -1,4 +1,3 @@
-// player.component.ts
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -11,4 +10,3 @@ export class PlayerComponent {
   @Input() position: number = 0;
   @Input() points: number = 0;
 }
-

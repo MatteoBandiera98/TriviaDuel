@@ -1,21 +1,37 @@
-<!-- register.component.html -->
-<div class="container text-center mt-3">
-  <h1>Registrati</h1>
-</div>
-<div class="container">
-  <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
-      <div class="form-group">
-          <label for="name" class="form-label">Nome</label>
-          <input type="text" id="name" name="name" required class="form-control" ngModel />
-          <label for="name" class="form-label">Cognome</label>
-          <input type="text" id="surname" name="surname" required class="form-control" ngModel />
-          <label for="name" class="form-label">Username</label>
-          <input type="text" id="username" name="username" required class="form-control" ngModel />
-          <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" name="email" required class="form-control" ngModel />
-          <label for="password" class="form-label">Password</label>
-          <input type="password" id="password" name="password" required class="form-control" ngModel />
+<div class="background-container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="row w-100" style="max-width: 900px;">
+    
+    <!-- Prima parte del jumbotron con titolo "Registrati" -->
+    <div class="col-md-6 p-0">
+      <div class="jumbotron jumbotron-fluid h-100 d-flex align-items-center rounded-start" style="background-color: #39268F; min-height: 70vh;">
+        <div class="container text-center">
+          <h1 class="display-4 text-white">Registrati</h1>
+        </div>
       </div>
-      <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary mt-4">Registrati</button>
-  </form>
+    </div>
+
+    <!-- Seconda parte del jumbotron con il form di registrazione -->
+    <div class="col-md-6 p-0">
+      <div class="jumbotron jumbotron-fluid h-100 d-flex align-items-center rounded-end" style="background-color: #D3E6EF; min-height: 70vh;">
+        <div class="container">
+          <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)" class="text-center">
+            <div class="form-group">
+              <label for="name" class="form-label">Nome</label>
+              <input type="text" id="name" name="name" required class="form-control" ngModel>
+              <label for="surname" class="form-label">Cognome</label>
+              <input type="text" id="surname" name="surname" required class="form-control" ngModel>
+              <label for="username" class="form-label">Username</label>
+              <input type="text" id="username" name="username" required class="form-control" ngModel>
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" required class="form-control" ngModel>
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" name="password" required class="form-control" ngModel>
+            </div>
+            <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary mt-4">Registrati</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

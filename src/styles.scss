@@ -3,4 +3,35 @@ body {
     font-weight: 400;
     font-style: normal;
   }
-  
+
+/* styles.css (o styles.scss) */
+
+@keyframes pageFlipEnter {
+  0% {
+    transform: rotateY(-160deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pageFlipLeave {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(160deg);
+    opacity: 0;
+  }
+}
+
+.page-enter {
+  animation: pageFlipEnter 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.page-leave {
+  animation: pageFlipLeave 1s cubic-bezier(0.23, 1, 0.32, 1);
+}

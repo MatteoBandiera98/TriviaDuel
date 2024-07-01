@@ -1,8 +1,8 @@
-// app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Importa BrowserAnimationsModule
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -36,11 +36,17 @@ import { QuizComponent } from './quiz/quiz.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule, // Aggiungi BrowserAnimationsModule per abilitare le animazioni CSS
     AppRoutingModule,
     FormsModule,
-    HttpClientModule // Aggiungi HttpClientModule agli imports
+    HttpClientModule
   ],
-  providers: [AuthService, GameService, QuestionService, AuthGuard],
+  providers: [
+    AuthService,
+    GameService,
+    QuestionService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

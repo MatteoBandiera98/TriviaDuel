@@ -1,14 +1,16 @@
 <div class="board">
-  <div *ngFor="let cell of cells; let i = index" class="cell">
+  <div *ngFor="let cell of cells; let i = index" class="cell" [style.backgroundColor]="getCategoryColor(cell.topic)">
     {{ i + 1 }} - {{ cell.topic }}
   </div>
+
+
   <img *ngIf="player.position !== -1" class="player" [src]="getPlayerImage()" [style.top]="getPlayerTop()" [style.left]="getPlayerLeft()">
   <app-dice (diceRolled)="onDiceRolled($event)"></app-dice>
 </div>
 
 <div class="jumbotron" *ngIf="quizStarted && currentQuestion">
   <div class="jumbotron-content">
-    <h1>Quiz</h1>
+    <h1>{{ currentQuestion.category }}</h1>
     <p>{{ currentQuestion.text }}</p>
     <div class="options">
       <button (click)="onAnswer('A')" 
@@ -33,6 +35,12 @@
               [disabled]="selectedAnswer !== null">
         {{ currentQuestion.optionD }}
       </button>
+    </div>
+    <div class="points">
+      <p>Punti: {{ player.points }}</p>
+    </div>
+    <div class="timer" *ngIf="quizStarted">
+      <span>{{ timerDisplay }}</span>
     </div>
   </div>
 </div>
