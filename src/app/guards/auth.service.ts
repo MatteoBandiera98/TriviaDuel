@@ -7,7 +7,12 @@ interface User {
   id: number;
   username: string;
   email: string;
-  // altri campi necessari
+  // Altri campi necessari
+}
+
+interface LoginResponse {
+  token: string;
+  user: User;
 }
 
 @Injectable({
@@ -15,16 +20,17 @@ interface User {
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080/auth'; // Assicurati che l'URL sia corretto per il tuo backend
+  private apiUrl = 'http://localhost:8080/auth'; 
   private userSubject: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
   public user$: Observable<User | null> = this.userSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { username, password }).pipe(
+  login(email: string, password: string): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, { email, password }).pipe(
       tap(response => {
-        localStorage.setItem('token', response.token); // Memorizza il token JWT nel localStorage
+        console.log('Server response:', response);  // Aggiungi questo log per il debug
+        localStorage.setItem('token', response.token); 
         this.userSubject.next(response.user); // Emetti l'utente loggato
       }),
       catchError(this.handleError) // Gestione degli errori
@@ -51,7 +57,6 @@ export class AuthService {
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
-    // Puoi personalizzare ulteriormente la gestione degli errori qui
     let errorMessage = 'An unknown error occurred!';
     if (error.error instanceof ErrorEvent) {
       // Errore lato client

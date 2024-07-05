@@ -8,12 +8,36 @@
   width: 100px;
   height: 100px;
   margin-bottom: 10px;
-  transition: transform 0.5s;
+  transition: transform 1s ease-in-out; /* Aggiunto transizione per la rotazione */
+}
+
+.rolling {
+  animation: rollDiceAnimation 1s ease-in-out forwards; /* Animazione per il lancio del dado */
+}
+
+@keyframes rollDiceAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 button {
   padding: 10px 20px;
   font-size: 16px;
+  background-color: #39268F; /* Colore di sfondo del pulsante */
+  color: #D3E6EF; /* Colore del testo del pulsante */
+  border: 1px solid #39268F; /* Bordo del pulsante */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transizioni per il cambio colore al passaggio del mouse */
 }
 
-  
+button:hover {
+  background-color: #1f145f; /* Cambio colore al passaggio del mouse */
+  border-color: #1f145f;
+  color: white;
+}

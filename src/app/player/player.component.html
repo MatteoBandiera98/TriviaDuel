@@ -1,7 +1,10 @@
 <!-- player.component.html -->
-<div>
+
+<div class="player">
+  <img [src]="getPlayerImage()" alt="Player Image" />
+  <div class="player-info">
     <h3>{{ playerName }}</h3>
-    <p>Posizione: {{ position }}</p>
-    <p>Punti: {{ points }}</p>
+    <p>Position: {{ position }}</p>
+    <p>Points: {{ points }}</p>
   </div>
-  
+</div>

@@ -1,9 +1,7 @@
-// login.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
-
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -12,19 +10,25 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
-  username = '';
+  email = '';
   password = '';
   error = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
   login(): void {
-    this.authService.login(this.username, this.password).subscribe(
-      () => {
-        this.router.navigate(['/dashboard']); // Reindirizza dopo il login
+    this.authService.login(this.email, this.password).subscribe(
+      response => {
+        console.log('Login success:', response);
+        this.router.navigate(['/menu']); // Reindirizza dopo il login
       },
       error => {
-        this.error = error.error.message; // Gestione degli errori di login
+        console.error('Login error:', error);
+        if (error instanceof HttpErrorResponse) {
+          this.error = error.error || 'Errore durante il login. Riprova più tardi.';
+        } else {
+          this.error = 'Errore imprevisto durante il login. Riprova più tardi.';
+        }
       }
     );
   }

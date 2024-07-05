@@ -1,0 +1,18 @@
+<div class="background-container">
+  <div class="jumbotron">
+    <div class="fireworks-container">
+      <div class="firework"></div>
+      <div class="firework"></div>
+    </div>
+    <div class="results-container">
+      <h1>Risultati del Quiz</h1>
+      <p>Punti totali: {{ playerPoints }}</p>
+      <div *ngFor="let category of getCategories()">
+        <h2>{{ category }}</h2>
+        <p>Domande corrette: {{ categoryStats[category].correct }}</p>
+        <p>Domande sbagliate: {{ categoryStats[category].wrong }}</p>
+      </div>
+      <button (click)="startNewGame()">Inizia nuova partita</button>
+    </div>
+  </div>
+</div>

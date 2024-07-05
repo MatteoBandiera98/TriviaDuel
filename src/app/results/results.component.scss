@@ -1,0 +1,95 @@
+.results-container {
+    padding: 50px;
+    text-align: center;
+    overflow-y: auto; /* Abilita lo scorrimento verticale */
+    max-height: 80vh; /* Limita l'altezza per evitare l'overflow */
+    position: relative; /* Per posizionare la scrollbar */
+  }
+  
+  .results-container::-webkit-scrollbar {
+    width: 10px; /* Larghezza della scrollbar */
+    height: 10px; /* Altezza della scrollbar */
+    background: transparent; /* Colore dello sfondo della track */
+  }
+  
+  .results-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* Colore del thumb */
+    border-radius: 5px; /* Bordi arrotondati */
+  }
+  
+  .results-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .results-container h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+  }
+  
+  .results-container p {
+    font-size: 1.2em;
+  }
+  
+  .jumbotron {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Allinea il contenuto all'inizio */
+    align-items: center; /* Allinea gli elementi al centro */
+    height: 90vh; /* Altezza aumentata per riempire l'intera schermata */
+    padding: 2rem;
+    background-color: #39268F;
+    width: 700px;
+    margin: auto; /* Centra il jumbotron */
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    color: white;
+    overflow: hidden; /* Nasconde l'overflow */
+    position: relative; /* Per posizionare i fuochi d'artificio */
+  }
+  
+  .fireworks-container {
+    position: absolute;
+    top: -50px; /* Regola la posizione verticale dei fuochi */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .firework {
+    width: 50px; /* Larghezza dei singoli fuochi d'artificio */
+    height: 50px; /* Altezza dei singoli fuochi d'artificio */
+    background-color: #FFD700; /* Colore di base dei fuochi */
+    border-radius: 50%;
+    position: relative;
+    animation: fireworks-animation 1s infinite;
+    transform-origin: center bottom;
+  }
+  
+  @keyframes fireworks-animation {
+    0% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(5);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

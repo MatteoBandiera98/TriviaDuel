@@ -1,0 +1,17 @@
+
+<div class="background-container">
+    <div class="jumbotron">
+      <h1 class="display-4 text-white mb-4 shake-effect">Impostazioni</h1>
+      <div>
+        <label>Volume dell'audio:</label>
+        <input type="range" min="0" max="100" [(ngModel)]="volume" (change)="adjustVolume()">
+      </div>
+      
+      <div>
+        <label>Scegli il player:</label>
+        <select [(ngModel)]="selectedPlayer">
+          <option *ngFor="let player of availablePlayers" [value]="player">{{ player }}</option>
+        </select>
+      </div>
+    </div>
+  </div>

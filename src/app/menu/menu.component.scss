@@ -1,0 +1,54 @@
+/* Stili per il jumbotron */
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Allinea il contenuto all'inizio */
+  align-items: center; /* Allinea gli elementi al centro */
+  height: 90vh; /* Altezza aumentata per riempire l'intera schermata */
+  padding: 2rem;
+  background-color: #39268F;
+  width: 700px;
+  margin: auto; /* Centra il jumbotron */
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Stili per il titolo */
+.display-4 {
+  color: white;
+  font-size: 3.5rem;
+  margin-top: 0; /* Rimuove lo spazio superiore predefinito */
+  animation: shake 10s infinite linear; /* Aggiunta animazione shake */
+}
+
+/* Animazione shake per il titolo */
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-10px, 0); }
+  20%, 40%, 60%, 80%, 100% { transform: translate(10px, 0); }
+}
+
+/* Stile per il background */
+.background-container {
+  background-color: #D3E6EF;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Stili per i bottoni */
+.btn-primary {
+  background-color: #39268F;
+  color: white;
+  border-color: #39268F;
+  width: 250px; /* Larghezza dei bottoni */
+  font-size: 1.5rem; /* Dimensione del testo */
+  padding: 10px 20px;
+  margin-bottom: 15px; /* Spazio tra i bottoni */
+}
+
+.btn-primary:hover {
+  background-color: #1f145f; /* Cambio colore al passaggio del mouse */
+  border-color: #1f145f;
+}

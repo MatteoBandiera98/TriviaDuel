@@ -1,6 +1,4 @@
-<!-- dice.component.html -->
 <div class="dice-container">
-    <img [src]="getDiceImage()" alt="Dice" class="dice">
-    <button (click)="rollDice()">Roll Dice</button>
-  </div>
-  
+  <img [src]="getDiceImage()" alt="Dice" class="dice" [class.rolling]="rolling">
+  <button (click)="rollDice()" [disabled]="rolling">Roll Dice</button>
+</div>

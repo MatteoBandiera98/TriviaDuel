@@ -1,3 +1,5 @@
+// player.component.ts
+
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -9,4 +11,8 @@ export class PlayerComponent {
   @Input() playerName: string = '';
   @Input() position: number = 0;
   @Input() points: number = 0;
+
+  getPlayerImage(): string {
+    return '../../assets/images/DinoSprites_mort.gif'; // Immagine del giocatore
+  }
 }

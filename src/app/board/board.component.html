@@ -3,7 +3,6 @@
     {{ i + 1 }} - {{ cell.topic }}
   </div>
 
-
   <img *ngIf="player.position !== -1" class="player" [src]="getPlayerImage()" [style.top]="getPlayerTop()" [style.left]="getPlayerLeft()">
   <app-dice (diceRolled)="onDiceRolled($event)"></app-dice>
 </div>
@@ -44,3 +43,8 @@
     </div>
   </div>
 </div>
+
+<audio #ohNoAudio src="../../assets/audio/Ohno.mp3"></audio>
+<audio #applauseAudio src="../../assets/audio/Applausi.mp3"></audio>
+<audio #backgroundAudio src="../../assets/audio/KAROLG.mp3" loop></audio>
+

@@ -1,32 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  private players = [
-    { position: 0, points: 0 },
-    { position: 0, points: 0 }
-  ];
 
-  movePlayer(playerIndex: number, steps: number) {
-    this.players[playerIndex].position += steps;
-  }
+  private apiUrl = 'http://localhost:8080/api'; // Assumi che l'API del backend sia su localhost sulla porta 8080
 
-  updatePoints(playerIndex: number, points: number) {
-    this.players[playerIndex].points += points;
-  }
+  constructor(private http: HttpClient) { }
 
-  getPlayerPosition(playerIndex: number): number {
-    return this.players[playerIndex].position;
-  }
-
-  getPlayerPoints(playerIndex: number): number {
-    return this.players[playerIndex].points;
-  }
-
-  checkWinner(): number | null {
-    const winner = this.players.findIndex(player => player.points >= 1000);
-    return winner !== -1 ? winner : null;
+  updatePlayerScore(playerId: number, newScore: number): Observable<any> {
+    const url = `${this.apiUrl}/players/${playerId}/score`;
+    const body = { score: newScore }; // Assicurati che il corpo sia nel formato corretto
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.put(url, body, { headers });
   }
 }
