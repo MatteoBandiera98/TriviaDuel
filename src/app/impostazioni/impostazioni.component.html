@@ -1,17 +1,25 @@
-
 <div class="background-container">
-    <div class="jumbotron">
-      <h1 class="display-4 text-white mb-4 shake-effect">Impostazioni</h1>
-      <div>
-        <label>Volume dell'audio:</label>
-        <input type="range" min="0" max="100" [(ngModel)]="volume" (change)="adjustVolume()">
-      </div>
-      
-      <div>
-        <label>Scegli il player:</label>
-        <select [(ngModel)]="selectedPlayer">
-          <option *ngFor="let player of availablePlayers" [value]="player">{{ player }}</option>
-        </select>
+  <div class="jumbotron">
+    <h1 class="display-4 text-white mb-4 shake-effect">Impostazioni</h1>
+
+    <div>
+      <label class="text-white p-3">Volume dell'audio:</label>
+      <input type="range" min="0" max="100" [(ngModel)]="volume" (change)="adjustVolume()">
+    </div>
+
+    <div class="player-options">
+      <label class="text-white mt-3">Scegli il player:</label>
+      <div class="player-options-container">
+        <div *ngFor="let player of availablePlayers" class="player-option">
+          <input type="radio" [id]="player.name" name="player" [value]="player.name" [(ngModel)]="selectedPlayer" (change)="onPlayerChange()">
+          <label [for]="player.name">
+            <img [src]="player.image" [alt]="player.name" class="player-image">
+            <span>{{ player.name }}</span>
+          </label>
+        </div>
       </div>
     </div>
+
+    <button class="btn-primary" (click)="goBack()">Torna al menù</button>
   </div>
+</div>

@@ -1,7 +1,16 @@
-<!-- profile.component.html -->
-<div>
-    <h2>Profilo</h2>
-    <p>Username: {{ user.username }}</p>
-    <!-- Aggiungi altre informazioni del profilo come progressi, punti, ecc. -->
+<div class="background-container">
+  <div class="jumbotron">
+    <h1 class="display-4 text-white mb-4 shake-effect">Profilo</h1>
+    <div class="results-container">
+      <h2>Punti totali: {{ totalPoints }}</h2>
+      <div *ngFor="let category of categories">
+        <h2>{{ category.title }}</h2>
+        <p>Domande corrette: {{ category.correct }}</p>
+        <p>Domande sbagliate: {{ category.wrong }}</p>
+      </div>
+      <div class="button-container">
+        <button (click)="goToMenu()">Torna al menù</button>
+      </div>
+    </div>
   </div>
-  
+</div>

@@ -48,36 +48,6 @@
     position: relative; /* Per posizionare i fuochi d'artificio */
   }
   
-  .fireworks-container {
-    position: absolute;
-    top: -50px; /* Regola la posizione verticale dei fuochi */
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .firework {
-    width: 50px; /* Larghezza dei singoli fuochi d'artificio */
-    height: 50px; /* Altezza dei singoli fuochi d'artificio */
-    background-color: #FFD700; /* Colore di base dei fuochi */
-    border-radius: 50%;
-    position: relative;
-    animation: fireworks-animation 1s infinite;
-    transform-origin: center bottom;
-  }
-  
-  @keyframes fireworks-animation {
-    0% {
-      transform: scaleY(1);
-    }
-    50% {
-      transform: scaleY(5);
-    }
-    100% {
-      transform: scaleY(1);
-    }
-  }
-  
   button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -93,3 +63,10 @@
     background-color: #45a049;
   }
   
+.button-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  margin-top: 20px;
+  width: 100%;
+}

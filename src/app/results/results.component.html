@@ -1,9 +1,6 @@
 <div class="background-container">
   <div class="jumbotron">
-    <div class="fireworks-container">
-      <div class="firework"></div>
-      <div class="firework"></div>
-    </div>
+    
     <div class="results-container">
       <h1>Risultati del Quiz</h1>
       <p>Punti totali: {{ playerPoints }}</p>
@@ -12,7 +9,10 @@
         <p>Domande corrette: {{ categoryStats[category].correct }}</p>
         <p>Domande sbagliate: {{ categoryStats[category].wrong }}</p>
       </div>
-      <button (click)="startNewGame()">Inizia nuova partita</button>
+      <div class="button-container">
+        <button (click)="startNewGame()">Inizia nuova partita</button>
+        <button (click)="goToMenu()">Torna al menù</button>
+      </div>
     </div>
   </div>
 </div>

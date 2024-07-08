@@ -189,7 +189,7 @@ export class BoardComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.currentQuestion = null;
       this.quizStarted = false;
-    }, 3000);
+    }, 4000);
   }
 
   playAudio(audioElement: ElementRef<HTMLAudioElement>) {
@@ -199,7 +199,7 @@ export class BoardComponent implements OnInit, OnDestroy {
   }
 
   playBackgroundMusic() {
-    const audio = new Audio('../../assets/audio/KAROLG.mp3');
+    const audio = new Audio('../../assets/audio/BaseTrivia.wav');
     audio.loop = true;
     audio.play().catch(error => {
       console.error('Playback error:', error);

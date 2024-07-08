@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-impostazioni',
@@ -12,16 +13,28 @@ export class ImpostazioniComponent {
 
   volume: number = 50; // Valore iniziale del volume
   selectedPlayer: string = ''; // Player selezionato
-  availablePlayers: string[] = ['Player 1', 'Player 2', 'Player 3', 'Player 4']; // Elenco dei player disponibili
+  availablePlayers: { name: string, image: string }[] = [
+    { name: 'Pipu', image: '../../assets/images/DinoSprites_vita.gif' },
+    { name: 'Tard', image: '../../assets/images/DinoSprites_tard.gif' },
+    { name: 'Mort', image: '../../assets/images/DinoSprites_mort.gif' },
+    { name: 'Doux', image: '../../assets/images/DinoSprites_doux.gif' }
+  ]; // Elenco dei player disponibili con immagini
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   adjustVolume(): void {
     this.volumeChange.emit(this.volume);
   }
 
   onPlayerChange(): void {
-    this.playerChange.emit(this.selectedPlayer);
+    const selectedPlayer = this.availablePlayers.find(player => player.name === this.selectedPlayer);
+    if (selectedPlayer) {
+      this.playerChange.emit(selectedPlayer.image);
+    }
   }
 
+  goBack(): void {
+   
+    this.router.navigateByUrl('/menu');
+  }
 }

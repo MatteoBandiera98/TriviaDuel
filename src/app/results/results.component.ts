@@ -28,4 +28,8 @@ export class ResultsComponent implements OnInit {
   startNewGame(): void {
     this.router.navigate(['/game']);
   }
+  goToMenu(): void{
+
+    this.router.navigate(['/menu'])
+  }
 }
